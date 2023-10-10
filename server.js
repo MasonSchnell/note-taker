@@ -6,6 +6,8 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
+const PORT = process.env.PORT || 3334;
+
 app.use(bodyParser.json());
 
 app.use(express.static("./Develop/public"));
@@ -63,4 +65,4 @@ app.post("/api/notes", (clientRequestObj, serverResponseObj) => {
     });
 });
 
-app.listen(3334, () => console.log("server started on port 3334"));
+app.listen(PORT, () => console.log("server started on port 3334"));
