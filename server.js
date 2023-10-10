@@ -34,10 +34,6 @@ app.delete("/api/notes/:index", (clientRequestObj, serverResponseObj) => {
     });
 });
 
-// app.get("/api/notes", (clientRequestObj, serverResponseObj) => {
-//     serverResponseObj.json(notes);
-// });
-
 // Handles adding to json file
 app.post("/api/notes", (clientRequestObj, serverResponseObj) => {
     const note = clientRequestObj.body;
