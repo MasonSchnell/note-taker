@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3334;
 
 app.use(bodyParser.json());
 
-app.use(express.static("./Develop/public"));
+app.use(express.static("./public"));
 
 app.get("/api/notes", (clientRequestObj, serverResponseObj) => {
     serverResponseObj.json(notes);
