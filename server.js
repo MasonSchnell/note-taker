@@ -3,15 +3,27 @@ const express = require("express");
 const notes = require("./Develop/db/db.json");
 const fs = require("fs");
 const bodyParser = require("body-parser");
+const path = require("path");
 
 const app = express();
 
+// Establishes the port that will be used
 const PORT = process.env.PORT || 3334;
 
 app.use(bodyParser.json());
 
+// Makes paths out of everything in public
 app.use(express.static("./public"));
 
+// Pulls in index
+const indexPath = path.join(__dirname, "index.html");
+
+// Get for home page
+app.get("/", (req, res) => {
+    res.sendFile(indexPath);
+});
+
+// Get for stored notes
 app.get("/api/notes", (clientRequestObj, serverResponseObj) => {
     serverResponseObj.json(notes);
 });
