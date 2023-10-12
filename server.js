@@ -18,9 +18,15 @@ app.use(express.static("./public"));
 // Pulls in index
 const indexPath = path.join(__dirname, "index.html");
 
+const indexJSPath = path.join(__dirname, "index.js");
+
 // Get for home page
 app.get("/", (req, res) => {
     res.sendFile(indexPath);
+});
+
+app.get("/index.js", (req, res) => {
+    res.sendFile(indexJSPath);
 });
 
 // Get for stored notes
